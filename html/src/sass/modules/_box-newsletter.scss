@@ -1,0 +1,76 @@
+/*======================================
+  Box newsletter
+======================================*/
+
+.box-newsletter {
+  width: 100%;
+  height: 443px;
+  border-radius: 6px;
+  padding: 32px 24px 0;
+  border: 1px solid #A3A3A3;
+  .image {
+    width: 152px;
+    height: 66px;
+    margin: 0 auto;
+  }
+  .title {
+    @include font($size: 16px, $weight: 700, $height: 24px, $align: center, $color: $color-black);
+    text-transform: uppercase;
+    padding: 22px 0 14px 0;
+  }
+  .description {
+    @include font($size: 16px, $weight: 400, $height: 24px, $align: center, $color: #616267);
+  }
+  .form {
+    max-width: 281px;
+    margin: 0 auto;
+    padding: 41px 0 0 0;
+    &>input {
+      width: 100%;
+      height: 44px;
+      border: none;
+      border-radius: 6px;
+      background-color: #5C832F;
+      @include font($size: 16px, $weight: 400, $height: 24px, $align: center, $color: $color-white);
+      cursor: pointer;
+      @include animate($time:0.3s);
+      &:hover {
+        background-color: rgba(#5C832F, 0.8);
+      }
+    }
+    label {
+      margin: 0 0 8px 0;
+      display: block;
+      position: relative;
+      input {
+        @include font($size: 16px, $weight: 400, $height: 24px, $align: left, $color: #616267);
+        width: 100%;
+        height: 44px;
+        padding: 10px 15px 10px 42px;
+        border-radius: 6px;
+        border: 1px solid #E8E8E8;
+        outline: none;
+        @include animate($time:0.3s);
+        &:focus {
+          border: 1px solid #5C832F;
+        }
+      }
+      .icon {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        fill: transparent;
+        stroke: $color-black;
+        stroke-width: 1.5px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        @include animate($time:0.3s);
+      }
+      input:focus + .icon {
+        stroke: #5C832F;
+      }
+    }
+  }
+}

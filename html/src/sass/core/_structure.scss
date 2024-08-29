@@ -1,0 +1,331 @@
+/*======================================
+  Main structure
+======================================*/
+
+body {
+  // background: url(../images/bg.png) top center no-repeat;
+}
+
+// header
+header {
+  border-bottom: 1px solid $color-dark-gray;
+  background: $color-black;
+  .grid {
+    @include columns( $quant: 32.9% 40.3% 26.8%, $gutter: 0, $align: center, $template: 'logo search social-media');
+    padding: 10px 0 0 0;
+    .logo {
+      grid-area: logo;
+      a {
+        width: 213px;
+        display: block;
+      }
+    }
+    .search {
+      grid-area: search;
+      .box-search {
+        width: 100%;
+        height: 44px;
+        border-radius: 6px;
+        background-color: $color-dark-gray;
+        position: relative;
+        .icon {
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          top: 12px;
+          left: 11px;
+          fill: transparent;
+          stroke: #A3A3A3;
+          stroke-width: 1.5px;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+        }
+        input {
+          width: 100%;
+          height: 100%;
+          background: transparent;
+          @include font($size: 16px, $weight: 400, $height: 19.36px, $color: #616267);
+          border: none;
+          padding: 0 15px 0 55px;
+        }
+      }
+    }
+    .social-media {
+      grid-area: social-media;
+      ul {
+        @include flex($align: center, $justify: end, $gap: 16px);
+        li {
+          a {
+            .icon {
+              width: 24px;
+              height: 24px;
+              fill: #4D4D4D;
+              @include animate($time:0.3s);
+              &.stroke {
+                fill: transparent;
+                stroke: #4D4D4D;
+                stroke-width: 2px;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+              }
+            }
+            &:hover {
+              .icon {
+                fill: #5C832F;
+                &.stroke {
+                  fill: transparent;
+                  stroke: #5C832F;
+                  stroke-width: 2px;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .grid-menu {
+    @include columns( $quant: 178px 1fr, $gutter: 0, $align: center, $template: 'menu nav');
+    padding: 11px 0 0 0;
+    .menu {
+      a {
+        @include flex($type: inline, $align: center, $justify: start, $gap: 8px);
+        @include font($size: 14px, $weight: 400, $height: 16.94px, $color: $color-white);
+        letter-spacing: 1px;
+        .icon {
+          width: 24px;
+          height: 24px;
+          fill: #5C832F;
+          @include animate($time:0.3s);
+        }
+        &:hover {
+          .icon {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+    nav {
+      ul {
+        @include flex($align: center, $justify: space-between, $gap: 8px);
+        li {
+          padding: 15px 0;
+          position: relative;
+          a {
+            @include font($size: 14px, $weight: 400, $height: 16.94px, $color: $color-white);
+            letter-spacing: 0.9px;
+            &::after {
+              content: '';
+              width: 0%;
+              height: 1px;
+              background-color: #5C832F;
+              position: absolute;
+              bottom: -1px;
+              left: 50%;
+              @include animate($time:0.3s);
+            }
+            &:hover {
+              &::after {
+                width: 100%;
+                left: 0;
+              }
+            }
+          }
+          &.act {
+            a {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// end header
+
+// menu-sidebar
+.menu-sidebar {
+  width: 100%;
+  height: 100vh;
+  background: rgba($color: #000000, $alpha: 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  @include animate($time:0.3s, $delay:0.2s);
+  .menu {
+    @include animate($time:0.3s, $delay:0s);
+    transform: translate(-560px, 0);
+    background: #000000;
+    //background: #000000 url(../images/bg-menu.png) top center no-repeat;
+    width: 560px;
+    height: 100vh;
+    padding-right: 5px;
+    border-right: 1px solid #1F1F1F;
+    .top {
+      width: 100%;
+      height: 115px;
+      padding: 47px 0 0 47px;
+      position: relative;
+      .close {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background-color: #1F1F1F;
+        position: absolute;
+        top: 48px;
+        right: 42px;
+        @include flex($align: center, $justify: center);
+        @include animate($time:0.3s);
+        .icon {
+          width: 24px;
+          height: 24px;
+          fill: transparent;
+          stroke: $color-white;
+          stroke-width: 2px;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+        }
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+    .body {
+      width: 100%;
+      height: calc(100vh - 115px);
+      padding: 33px 40px 40px;
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 20px;
+        margin-right: 5px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #1F1F1F;
+        border-radius: 20px;
+        width: 4px;
+      }
+      &>ul {
+        &>li {
+          border-bottom: 1px solid #1F1F1F;
+          padding: 20px 0;
+          &>a {
+            @include flex($align: center, $justify: space-between);
+            @include font($size: 16px, $weight: 400, $height: 19.36px, $align: left, $color: $color-white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            .icon {
+              width: 24px;
+              height: 24px;
+              transform: rotate(180deg);
+              @include animate($time:0.3s);
+            }
+            &:hover {
+              color: #5C832F;
+            }
+          }
+          &.open {
+            &>a {
+              .icon {
+                transform: rotate(0deg);
+              }
+            }
+            /*&>ul {
+              display: block;
+            }*/
+          }
+          &>ul {
+            padding: 10px 16px 0 16px;
+            display: none;
+            &>li {
+              padding: 8px 0;
+              &>a {
+                @include font($size: 16px, $weight: 400, $height: 19.36px, $align: left, $color: #A3A3A3);
+                &:hover {
+                  color: #5C832F;
+                }
+              }
+              &:last-child {
+                padding-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.menu-open {
+    opacity: 1;
+    visibility: visible;
+    @include animate($time:0.3s);
+    .menu {
+      @include animate($time:0.3s, $delay:0.2s);
+      transform: translate(0px, 0);
+    }
+  }
+}
+// end menu-sidebar
+
+// main
+main {
+  padding: 0 0 101px 0;
+}
+// end main
+
+// footer
+footer {
+  padding: 42px 0 40px 0;
+  background: $color-black;
+  .grid {
+    @include columns( $quant: 268px 1fr 1fr, $gutter: 24px, $align: center, $template: '');
+    .copyright {
+      p {
+        @include font($size: 14px, $weight: 700, $height: 21px, $align: left, $color: $color-white);
+        letter-spacing: -0.2px;
+        span {
+          padding: 0 10px;
+        }
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+    .signature {
+      p {
+        @include font($size: 14px, $weight: 700, $height: 21px, $align: right, $color: $color-white);
+        letter-spacing: -0.2px;
+        a {
+          &:hover {
+            color: $color-green;
+          }
+          &.upsites {
+            display: inline-flex;
+            span {
+              @include animate($time: 0.3s);
+              position: relative;
+              &:hover {
+                top: -4px;
+              }
+            }
+            span:hover + span {
+              top: -2px !important;
+            }
+            span:has(+ span:hover) {
+              top: -2px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// end footer

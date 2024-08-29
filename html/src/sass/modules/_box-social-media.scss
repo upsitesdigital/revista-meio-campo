@@ -1,0 +1,50 @@
+/*======================================
+  Box social media
+======================================*/
+
+.box-social-media {
+  width: 100%;
+  height: 251px;
+  border-radius: 6px;
+  padding: 38px 80px 0 80px;
+  margin-bottom: 24px;
+  border: 1px solid #E8E8E8;
+  .arroba {
+    @include font($size: 16px, $weight: 400, $height: 16px, $align: center, $color: #5C832F);
+    display: block;
+  }
+  .title {
+    @include font($size: 16px, $weight: 700, $height: 24px, $align: center, $color: $color-black);
+    text-transform: uppercase;
+    padding: 10px 0 32px 0;
+  }
+  .list {
+    @include flex($align: center, $justify: center, $gap: 16px);
+    li {
+      a {
+        width: 44px;
+        height: 44px;
+        display: block;
+        border-radius: 50%;
+        background: rgba(92, 131, 47, 0.1);
+        @include animate($time:0.3s);
+        @include flex($align: center, $justify: center);
+        .icon {
+          width: 24px;
+          height: 24px;
+          fill: #5C832F;
+          &.stroke {
+            fill: transparent;
+            stroke: #5C832F;
+            stroke-width: 2px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+          }
+        }
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+}

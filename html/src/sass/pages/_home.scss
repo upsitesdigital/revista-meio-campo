@@ -1,0 +1,81 @@
+/*======================================
+  Home
+======================================*/
+
+.hero {
+  height: 712px;
+  margin-bottom: 20px;
+  @include columns( $quant: 2.31fr 1fr, $gutter: 0, $align: stretch, $template: 'featured featured02' 'featured featured03');
+  .image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: '';
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+    }
+    img {
+      @include animate($time:0.3s);
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    .content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 0 90px 99px 90px;
+      z-index: 2;
+
+      .tag {
+        @include font($size: 12px, $weight: 600, $height: 14.52px, $color: $color-white);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .title {
+        @include font($size: 56px, $weight: 700, $height: 84px, $color: $color-white);
+        padding: 16px 0 0 0;
+      }
+    }
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .featured {
+    grid-area: featured;
+    border-right: 1px solid $color-dark-gray;
+  }
+  .featured02 {
+    grid-area: featured02;
+    border-bottom: 1px solid $color-dark-gray;
+    .image {
+      .content {
+        padding: 0 50px 44px 35px;
+        .title {
+          @include font($size: 20px, $weight: 500, $height: 30px, $color: $color-white);
+        }
+      }
+    }
+  }
+  .featured03 {
+    grid-area: featured03;
+    .image {
+      .content {
+        padding: 0 50px 44px 35px;
+        .title {
+          @include font($size: 20px, $weight: 500, $height: 30px, $color: $color-white);
+        }
+      }
+    }
+  }
+}
+

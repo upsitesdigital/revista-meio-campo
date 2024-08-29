@@ -1,0 +1,368 @@
+/*======================================
+  Lists
+======================================*/
+
+.block-news {
+  padding: 79px 0 0 0;
+  &.extra-padding {
+    padding: 107px 0 0 0;
+  }
+  &.space-negative {
+    padding: 0 0 0 0;
+    margin: -108px 0 0 0;
+  }
+  .block-title {
+    border-top: 1px solid #E8E8E8;
+    padding: 24px 0 32px 0;
+    @include flex($align: center, $justify: space-between, $gap: 8px);
+    .left {
+      @include flex($align: center, $justify: start, $gap: 22px);
+      .title {
+        @include font($size: 20px, $weight: 700, $height: 24.2px, $color: $color-black);
+        text-transform: uppercase;
+        padding: 0 22px 0 0;
+        border-right: 2px solid #A3A3A3;
+      }
+      .description {
+        @include font($size: 14px, $weight: 400, $height: 21px, $color: #616267);
+      }
+    }
+    .see-more {
+      @include flex($align: center, $justify: start, $gap: 12px);
+      @include font($size: 14px, $weight: 600, $height: 21px, $color: #5C832F);
+      text-transform: uppercase;
+      padding: 0 8px 0 0;
+      .icon {
+        @include animate($time:0.2s);
+        width: 20px;
+        height: 20px;
+        fill: transparent;
+      }
+      &:hover {
+        .icon {
+          margin: 0 -5px 0 5px;
+        }
+      }
+    }
+  }
+  .subtitle {
+    @include font($size: 16px, $weight: 700, $height: 19.36px, $color: #616267);
+    text-transform: uppercase;
+    padding: 8px 0 23px 0;
+    border-bottom: 1px solid #E8E8E8;
+  }
+  .space {
+    padding: 59px 0 0 0;
+  }
+  .small-space {
+    padding: 32px 0 0 0;
+  }
+  .grid-four {
+    @include columns( $quant: repeat(4,1fr), $gutter: 59px 24px, $align: start, $template: '');
+  }
+  .grid-tree {
+    @include columns( $quant: repeat(4,1fr), $gutter: 24px, $align: stretch, $template: 'first first second third');
+    :first-child {
+      grid-area: first;
+    }
+    :nth-child(2) {
+      grid-area: second;
+    }
+    :nth-child(3) {
+      grid-area: third;
+    }
+  }
+  .grid-two {
+    @include columns( $quant: repeat(4,1fr), $gutter: 24px, $align: stretch, $template: 'first first first second');
+    &>:first-child {
+      grid-area: first;
+    }
+    &>:nth-child(2) {
+      grid-area: second;
+    }
+    .grid-tree-cols {
+      @include columns( $quant: repeat(3,1fr), $gutter: 60px 24px, $align: stretch, $template: '');
+    }
+  }
+  .grid-two-small {
+    border-top: 1px solid #E8E8E8;
+    margin-top: 19px;
+    padding: 24px 0 0 0;
+    @include columns( $quant: repeat(3,1fr), $gutter: 24px, $align: stretch, $template: 'first first second');
+    &>:first-child {
+      grid-area: first;
+    }
+    &>:nth-child(2) {
+      grid-area: second;
+    }
+    .grid-one-cols {
+      @include columns( $quant: 1fr, $gutter: 0, $align: stretch, $template: '');
+      &>.title {
+        @include font($size: 20px, $weight: 700, $height: 24.2px, $color: $color-black);
+        text-transform: uppercase;
+        padding: 0;
+      }
+      .posts {
+        &>:nth-child(1) {
+          border-top: none;
+        }
+      }
+      .load-more {
+        width: 240px;
+        height: 44px;
+        margin: 13px 0 0 0;
+        border-radius: 6px;
+        @include flex($align: center, $justify: center, $gap: 12px);
+        @include font($size: 16px, $weight: 600, $height: 24px, $color: #5C832F);
+        @include animate($time:0.3s);
+        background: rgba(92, 131, 47, 0.1);
+        .icon {
+          width: 16px;
+          height: 16px;
+          fill: transparent;
+        }
+        &:hover {
+          background: rgba(92, 131, 47, 0.2);
+        }
+      }
+    }
+  }
+  .box-model {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #E8E8E8;
+    border-radius: 6px;
+    overflow: hidden;
+    padding: 11px 10px 11px 11px;
+    &>:nth-child(1) {
+      border-bottom: 1px solid #E8E8E8;
+      padding: 0 0 17px 0;
+      margin: 0 0 15px 0;
+    }
+  }
+  .model-01 {
+    .image {
+      width: 100%;
+      height: 196px;
+      border-radius: 6px;
+      overflow: hidden;
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        @include animate($time:0.3s);
+      }
+    }
+    .tag {
+      @include font($size: 12px, $weight: 600, $height: 14.52px, $color: $color-green);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: block;
+      padding: 17px 0 7px 0;
+    }
+    .title {
+      @include font($size: 14px, $weight: 500, $height: 21px, $color: $color-black);
+      padding: 0 0 16px 0;
+      &.ptop {
+        padding-top: 16px;
+      }
+    }
+    .date {
+      @include flex($align: center, $justify: start, $gap: 6px);
+      @include font($size: 12px, $weight: 600, $height: 14.52px, $color: #A3A3A3);
+      text-transform: uppercase;
+      .icon {
+        width: 16px;
+        height: 16px;
+        fill: transparent;
+      }
+    }
+    &:hover {
+      .image {
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+  .model-02 {
+    height: 388px;
+    border-radius: 6px;
+    overflow: hidden;
+    .image {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      &:before {
+        content: '';
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+      }
+      img {
+        @include animate($time:0.3s);
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+      .content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 0 46px 30px 32px;
+        z-index: 2;
+        .tag {
+          @include font($size: 12px, $weight: 600, $height: 14.52px, $color: $color-white);
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+        .title {
+          @include font($size: 24px, $weight: 700, $height: 36px, $color: $color-white);
+          padding: 16px 0 0 0;
+        }
+      }
+    }
+    &.small {
+      .image {
+        .content {
+          padding: 0 20px 30px 20px;
+        }
+      }
+    }
+    &:hover {
+      .image {
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+  .model-03 {
+    display: block;
+    .image {
+      width: 72px;
+      height: 72px;
+      border-radius: 6px;
+      overflow: hidden;
+      img {
+        @include animate($time:0.3s);
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .title {
+      @include font($size: 14px, $weight: 500, $height: 21px, $color: $color-black);
+      padding: 12px 0 22px 0;
+    }
+    .date {
+      @include flex($align: center, $justify: start, $gap: 6px);
+      @include font($size: 12px, $weight: 600, $height: 14.52px, $color: #A3A3A3);
+      text-transform: uppercase;
+      .icon {
+        width: 16px;
+        height: 16px;
+        fill: transparent;
+      }
+    }
+    &:hover {
+      .image {
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+  .model-04 {
+    display: block;
+    padding: 22px 0 20px 10px;
+    border-bottom: 1px solid #E8E8E8;
+    .tag {
+      @include flex($align: center, $justify: start, $gap: 8px);
+      @include font($size: 12px, $weight: 600, $height: 14.52px, $color: #A3A3A3);
+      .icon {
+        @include animate($time:0.3s);
+        width: 23px;
+        height: 16px;
+        fill: transparent;
+        border-right: 1px solid #E8E8E8;
+        padding: 0 7px 0 0;
+      }
+    }
+    .title {
+      @include font($size: 14px, $weight: 500, $height: 21px, $color: $color-black);
+      padding: 10px 0 22px 0;
+    }
+    .date {
+      @include flex($align: center, $justify: start, $gap: 6px);
+      @include font($size: 12px, $weight: 600, $height: 14.52px, $color: #A3A3A3);
+      text-transform: uppercase;
+      .icon {
+        width: 16px;
+        height: 16px;
+        fill: transparent;
+      }
+    }
+    &:hover {
+      .tag {
+        img {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+  .model-05 {
+    border-top: 1px solid #E8E8E8;
+    padding: 32px 0 31px 0;
+    @include columns( $quant: 267px 1fr, $gutter: 24px, $align: start, $template: '');
+    .image {
+      width: 100%;
+      height: 196px;
+      border-radius: 6px;
+      overflow: hidden;
+      img {
+        @include animate($time:0.3s);
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .tag {
+      @include font($size: 12px, $weight: 600, $height: 14.52px, $color: $color-green);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: block;
+      padding: 0 0 7px 0;
+    }
+    .title {
+      @include font($size: 20px, $weight: 500, $height: 30px, $color: $color-black);
+      padding: 0 0 17px 0;
+    }
+    .description {
+      @include font($size: 16px, $weight: 400, $height: 24px, $color: #616267);
+      padding: 0 0 17px 0;
+    }
+    .date {
+      @include flex($align: center, $justify: start, $gap: 6px);
+      @include font($size: 12px, $weight: 600, $height: 14.52px, $color: #A3A3A3);
+      text-transform: uppercase;
+      .icon {
+        width: 16px;
+        height: 16px;
+        fill: transparent;
+      }
+    }
+    &:hover {
+      .image {
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
