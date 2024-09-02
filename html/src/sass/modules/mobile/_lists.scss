@@ -90,6 +90,8 @@
     }
     &>:nth-child(2) {
       grid-area: second;
+      width: 100%;
+      overflow: hidden;
     }
     .grid-one-cols {
       @include columns( $quant: 1fr, $gutter: 0, $align: stretch, $template: '');

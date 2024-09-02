@@ -240,7 +240,8 @@
       }
       .sidebar {
         grid-area: sidebar;
-
+        width: 100%;
+        overflow: hidden;
       }
     }
   }
