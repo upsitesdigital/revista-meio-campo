@@ -3,7 +3,8 @@
 ======================================*/
 
 body {
-  // background: url(../images/bg.png) top center no-repeat;
+  //background: url(../images/bg.png) top center no-repeat;
+  //background-size: cover;
 }
 
 // header
@@ -11,13 +12,17 @@ header {
   border-bottom: 1px solid $color-dark-gray;
   background: $color-black;
   .grid {
-    @include columns( $quant: 32.9% 40.3% 26.8%, $gutter: 0, $align: center, $template: 'logo search social-media');
-    padding: 10px 0 0 0;
+    @include columns( $quant: 156px 1fr, $gutter: 12px, $align: center, $template: 'logo menu' 'search search');
+    padding: 12px 0 12px 0;
     .logo {
       grid-area: logo;
       a {
-        width: 213px;
+        width: 156px;
         display: block;
+        img {
+          width: 100%;
+          height: auto;
+        }
       }
     }
     .search {
@@ -51,51 +56,14 @@ header {
       }
     }
     .social-media {
-      grid-area: social-media;
-      ul {
-        @include flex($align: center, $justify: end, $gap: 16px);
-        li {
-          a {
-            .icon {
-              width: 24px;
-              height: 24px;
-              fill: #4D4D4D;
-              @include animate($time:0.3s);
-              &.stroke {
-                fill: transparent;
-                stroke: #4D4D4D;
-                stroke-width: 2px;
-                stroke-linecap: round;
-                stroke-linejoin: round;
-              }
-            }
-            &:hover {
-              .icon {
-                fill: #5C832F;
-                &.stroke {
-                  fill: transparent;
-                  stroke: #5C832F;
-                  stroke-width: 2px;
-                  stroke-linecap: round;
-                  stroke-linejoin: round;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    .menu {
       display: none;
     }
-  }
-  .grid-menu {
-    @include columns( $quant: 178px 1fr, $gutter: 0, $align: center, $template: 'menu nav');
-    padding: 11px 0 0 0;
     .menu {
+      grid-area: menu;
+      text-align: right;
       a {
         @include flex($type: inline, $align: center, $justify: start, $gap: 8px);
-        @include font($size: 14px, $weight: 400, $height: 16.94px, $color: $color-white);
+        @include font($size: 12px, $weight: 400, $height: 14.52px, $color: $color-white);
         letter-spacing: 1px;
         .icon {
           width: 24px;
@@ -110,40 +78,9 @@ header {
         }
       }
     }
-    nav {
-      ul {
-        @include flex($align: center, $justify: space-between, $gap: 8px);
-        li {
-          padding: 15px 0;
-          position: relative;
-          a {
-            @include font($size: 14px, $weight: 400, $height: 16.94px, $color: $color-white);
-            letter-spacing: 0.9px;
-            &::after {
-              content: '';
-              width: 0%;
-              height: 1px;
-              background-color: #5C832F;
-              position: absolute;
-              bottom: -1px;
-              left: 50%;
-              @include animate($time:0.3s);
-            }
-            &:hover {
-              &::after {
-                width: 100%;
-                left: 0;
-              }
-            }
-          }
-          &.act {
-            a {
-              font-weight: 600;
-            }
-          }
-        }
-      }
-    }
+  }
+  .grid-menu {
+    display: none;
   }
 }
 // end header
@@ -166,17 +103,17 @@ header {
     transform: translate(-560px, 0);
     background: #000000;
     //background: #000000 url(../images/bg-menu.png) top center no-repeat;
-    width: 560px;
+    width: 100%;
     height: 100vh;
     padding-right: 5px;
     border-right: 1px solid #1F1F1F;
     .top {
       width: 100%;
-      height: 115px;
-      padding: 47px 0 0 47px;
+      height: 60px;
+      padding: 16px 0 0 16px;
       position: relative;
       .logo {
-        width: 268px;
+        width: 180px;
         display: block;
         img {
           width: 100%;
@@ -184,18 +121,18 @@ header {
         }
       }
       .close {
-        width: 44px;
-        height: 44px;
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
         background-color: #1F1F1F;
         position: absolute;
-        top: 48px;
-        right: 42px;
+        top: 16px;
+        right: 16px;
         @include flex($align: center, $justify: center);
         @include animate($time:0.3s);
         .icon {
-          width: 24px;
-          height: 24px;
+          width: 18px;
+          height: 18px;
           fill: transparent;
           stroke: $color-white;
           stroke-width: 2px;
@@ -209,8 +146,8 @@ header {
     }
     .body {
       width: 100%;
-      height: calc(100vh - 115px);
-      padding: 33px 40px 40px;
+      height: calc(100vh - 60px);
+      padding: 16px 16px 16px;
       overflow-y: scroll;
       &::-webkit-scrollbar {
         width: 4px;
@@ -288,17 +225,20 @@ header {
 
 // main
 main {
-  padding: 0 0 101px 0;
+  padding: 0 0 32px 0;
+  width: 100%;
+  overflow: hidden;
 }
 // end main
 
 // footer
 footer {
-  padding: 42px 0 40px 0;
+  padding: 29px 0 29px 0;
   background: $color-black;
   .grid {
-    @include columns( $quant: 268px 1fr 1fr, $gutter: 24px, $align: center, $template: '');
+    @include columns( $quant: 1fr, $gutter: 16px, $align: center, $template: '');
     .logo {
+      max-width: 268px;
       img {
         width: 100%;
         height: auto;
@@ -309,7 +249,11 @@ footer {
         @include font($size: 14px, $weight: 700, $height: 21px, $align: left, $color: $color-white);
         letter-spacing: -0.2px;
         span {
-          padding: 0 10px;
+          padding: 0;
+          display: block;
+          height: 15px;
+          border: 0;
+          font-size: 0;
         }
         a {
           text-decoration: underline;
@@ -317,8 +261,9 @@ footer {
       }
     }
     .signature {
+      padding: 16px 0 0 0;
       p {
-        @include font($size: 14px, $weight: 700, $height: 21px, $align: right, $color: $color-white);
+        @include font($size: 14px, $weight: 700, $height: 21px, $align: left, $color: $color-white);
         letter-spacing: -0.2px;
         a {
           &:hover {

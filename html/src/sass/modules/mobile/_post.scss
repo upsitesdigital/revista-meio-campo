@@ -6,7 +6,7 @@
   padding: 58px 0 0 0;
   article {
     .grid {
-      @include columns( $quant: 2.07fr 1fr, $gutter: 55px 24px, $align: start, $template: 'title title' 'post sidebar');
+      @include columns( $quant: 1fr, $gutter: 55px 24px, $align: start, $template: 'title' 'post' 'sidebar');
       .box-title {
         grid-area: title;
         .tag {
@@ -17,7 +17,7 @@
           padding: 17px 0 25px 0;
         }
         .title {
-          @include font($size: 40px, $weight: 700, $height: 52px, $color: $color-black);
+          @include font($size: 32px, $weight: 700, $height: 42px, $color: $color-black);
           max-width: 780px;
           padding: 0 0 24px 0;
         }
@@ -201,15 +201,15 @@
           border-top: 1px solid #E8E8E8;
           margin: 42px 0 0 0;
           padding: 21px 0 0 0;
-          max-width: 655px;
-          @include flex($align: center, $justify: space-between, $gap: 6px);
           span {
-            @include font($size: 14px, $weight: 600, $height: 21px, $color: #616267);
+            @include font($size: 14px, $weight: 600, $height: 21px, $align: center, $color: #616267);
             text-transform: uppercase;
             letter-spacing: 1px;
+            display: block;
+            padding-bottom: 24px;
           }
           ul {
-            @include flex($align: center, $justify: end, $gap: 24px);
+            @include flex($align: center, $justify: center, $gap: 24px);
             list-style: none;
             padding: 0;
             margin: 0;

@@ -1,0 +1,21 @@
+/*======================================
+  Blog
+======================================*/
+
+.hero-internal {
+  padding: get-vw-lg(77px) 0 get-vw-lg(187px) 0;
+  background: $color-black;
+  .grid {
+    @include columns( $quant: 1.475fr 1fr, $gutter: 0, $align: end, $template: '');
+    .item {
+      .title {
+        @include font($size: get-vw-lg(72px), $weight: 700, $height: get-vw-lg(82.8px), $color: $color-white);
+        text-transform: uppercase;
+      }
+      .description {
+        @include font($size: get-vw-lg(24px), $weight: 400, $height: get-vw-lg(36px), $color: $color-white);
+        padding: 0 get-vw-lg(2px) get-vw-lg(6px) 0;
+      }
+    }
+  }
+}

@@ -74,7 +74,7 @@
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	eval("/* WEBPACK VAR INJECTION */(function($) {'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nexports.default = function () {\n  $(document).on('click', 'header .grid-menu .menu a,.menu-sidebar .menu .top .close', function () {\n    $('.menu-sidebar').toggleClass('menu-open');\n    return false;\n  });\n  $(document).on('click', '.menu-sidebar .menu .body > ul > li > a', function () {\n    $(this).closest('li').toggleClass('open');\n    $(this).closest('li').find('ul').slideToggle();\n    return false;\n  });\n};\n/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))\n\n//////////////////\n// WEBPACK FOOTER\n// ./src/js/pages/_home.js\n// module id = 5\n// module chunks = 0\n//# sourceURL=webpack:///./src/js/pages/_home.js?");
+	eval("/* WEBPACK VAR INJECTION */(function($) {'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nexports.default = function () {\n  $(document).on('click', 'header .menu a,.menu-sidebar .menu .top .close', function () {\n    $('.menu-sidebar').toggleClass('menu-open');\n    return false;\n  });\n  $(document).on('click', '.menu-sidebar .menu .body > ul > li > a', function () {\n    $(this).closest('li').toggleClass('open');\n    $(this).closest('li').find('ul').slideToggle();\n    return false;\n  });\n};\n/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))\n\n//////////////////\n// WEBPACK FOOTER\n// ./src/js/pages/_home.js\n// module id = 5\n// module chunks = 0\n//# sourceURL=webpack:///./src/js/pages/_home.js?");
 
 /***/ })
 /******/ ]);

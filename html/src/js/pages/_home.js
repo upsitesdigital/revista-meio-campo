@@ -2,7 +2,7 @@
  * Home
  */
 export default function() {
-  $(document).on('click', 'header .grid-menu .menu a,.menu-sidebar .menu .top .close', function () {
+  $(document).on('click', 'header .menu a,.menu-sidebar .menu .top .close', function () {
     $('.menu-sidebar').toggleClass('menu-open');
     return false;
   });

@@ -3,46 +3,41 @@
 ======================================*/
 
 .block-news {
-  padding: 79px 0 0 0;
+  padding: 10px 0 0 0;
   &.extra-padding {
-    padding: 107px 0 0 0;
+    padding: 66px 0 0 0;
   }
   &.space-negative {
     padding: 0 0 0 0;
-    margin: -108px 0 0 0;
+    margin: -108px 0 41px 0;
   }
+  &.hidden-mobile {
+    display: none;
+  }
+
   .block-title {
     border-top: 1px solid #E8E8E8;
     padding: 24px 0 32px 0;
-    @include flex($align: center, $justify: space-between, $gap: 8px);
+    &.extra-space {
+      padding-bottom: 40px;
+    }
+    &.small-space {
+      padding-bottom: 24px;
+      padding-top: 25px;
+    }
     .left {
-      @include flex($align: center, $justify: start, $gap: 22px);
       .title {
         @include font($size: 20px, $weight: 700, $height: 24.2px, $color: $color-black);
         text-transform: uppercase;
-        padding: 0 22px 0 0;
-        border-right: 2px solid #A3A3A3;
+        padding: 0 0 8px 0;
+        border-right: none;
       }
       .description {
         @include font($size: 14px, $weight: 400, $height: 21px, $color: #616267);
       }
     }
     .see-more {
-      @include flex($align: center, $justify: start, $gap: 12px);
-      @include font($size: 14px, $weight: 600, $height: 21px, $color: #5C832F);
-      text-transform: uppercase;
-      padding: 0 8px 0 0;
-      .icon {
-        @include animate($time:0.2s);
-        width: 20px;
-        height: 20px;
-        fill: transparent;
-      }
-      &:hover {
-        .icon {
-          margin: 0 -5px 0 5px;
-        }
-      }
+      display: none;
     }
   }
   .subtitle {
@@ -52,16 +47,17 @@
     border-bottom: 1px solid #E8E8E8;
   }
   .space {
-    padding: 59px 0 0 0;
+    padding: 45px 0 0 0;
   }
   .small-space {
     padding: 32px 0 0 0;
   }
   .grid-four {
-    @include columns( $quant: repeat(4,1fr), $gutter: 59px 24px, $align: start, $template: '');
+    @include columns( $quant: 1fr, $gutter: 51px 24px, $align: start, $template: '');
   }
   .grid-tree {
-    @include columns( $quant: repeat(4,1fr), $gutter: 24px, $align: stretch, $template: 'first first second third');
+    @include columns( $quant: 1fr, $gutter: 16px, $align: stretch, $template: 'first' 'second' 'third');
+    margin: 0 0 49px 0;
     :first-child {
       grid-area: first;
     }
@@ -73,7 +69,7 @@
     }
   }
   .grid-two {
-    @include columns( $quant: repeat(4,1fr), $gutter: 24px, $align: stretch, $template: 'first first first second');
+    @include columns( $quant: 1fr, $gutter: 61px, $align: stretch, $template: 'first' 'second');
     &>:first-child {
       grid-area: first;
     }
@@ -81,14 +77,14 @@
       grid-area: second;
     }
     .grid-tree-cols {
-      @include columns( $quant: repeat(3,1fr), $gutter: 60px 24px, $align: stretch, $template: '');
+      @include columns( $quant: 1fr, $gutter: 52px 24px, $align: stretch, $template: '');
     }
   }
   .grid-two-small {
     border-top: 1px solid #E8E8E8;
     margin-top: 19px;
     padding: 24px 0 0 0;
-    @include columns( $quant: repeat(3,1fr), $gutter: 24px, $align: stretch, $template: 'first first second');
+    @include columns( $quant: 1fr, $gutter: 61px, $align: stretch, $template: 'first' 'second');
     &>:first-child {
       grid-area: first;
     }
@@ -108,7 +104,7 @@
         }
       }
       .load-more {
-        width: 240px;
+        width: 100%;
         height: 44px;
         margin: 13px 0 0 0;
         border-radius: 6px;
@@ -136,8 +132,8 @@
     padding: 11px 10px 11px 11px;
     &>:nth-child(1) {
       border-bottom: 1px solid #E8E8E8;
-      padding: 0 0 17px 0;
-      margin: 0 0 15px 0;
+      padding: 0 0 23px 0;
+      margin: 0 0 24px 0;
     }
   }
   .model-01 {
@@ -186,7 +182,7 @@
     }
   }
   .model-02 {
-    height: 388px;
+    height: 320px;
     border-radius: 6px;
     overflow: hidden;
     .image {
@@ -213,7 +209,7 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        padding: 0 46px 30px 32px;
+        padding: 0 18px 30px 18px;
         z-index: 2;
         .tag {
           @include font($size: 12px, $weight: 600, $height: 14.52px, $color: $color-white);
@@ -221,7 +217,7 @@
           text-transform: uppercase;
         }
         .title {
-          @include font($size: 24px, $weight: 700, $height: 36px, $color: $color-white);
+          @include font($size: 16px, $weight: 700, $height: 24px, $color: $color-white);
           padding: 16px 0 0 0;
         }
       }
@@ -243,7 +239,9 @@
   }
   .model-03 {
     display: block;
+    @include columns( $quant: 72px 1fr, $gutter: 13px, $align: start, $template: 'image content');
     .image {
+      grid-area: image;
       width: 72px;
       height: 72px;
       border-radius: 6px;
@@ -255,12 +253,15 @@
         height: 100%;
       }
     }
+    .content {
+      grid-area: content;
+    }
     .title {
       @include font($size: 14px, $weight: 500, $height: 21px, $color: $color-black);
-      padding: 12px 0 22px 0;
-      display: block;
+      padding: 0 0 14px 0;
+      display: none;
       &.mobile {
-        display: none;
+        display: block;
       }
     }
     .date {
@@ -322,7 +323,7 @@
   .model-05 {
     border-top: 1px solid #E8E8E8;
     padding: 32px 0 31px 0;
-    @include columns( $quant: 267px 1fr, $gutter: 24px, $align: start, $template: '');
+    @include columns( $quant: 1fr, $gutter: 24px, $align: start, $template: '');
     .image {
       width: 100%;
       height: 196px;

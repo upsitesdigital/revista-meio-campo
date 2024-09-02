@@ -13,8 +13,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/main.css">
-  <!-- link rel="stylesheet" href="assets/css/main.min.css" -->
+  
+  <link rel="stylesheet" href="assets/css/main.css" media="screen and (min-width: 769px)">
+  <link rel="stylesheet" href="assets/css/main-responsive.css" media="screen and (min-width: 769px) and (max-width: 1180px)">
+  <link rel="stylesheet" href="assets/css/main-mobile.css" media="screen and (max-width: 768.9px)">
+
   <link rel="shortcut icon" href="favicon.ico">
 
   <meta name="description" content="">
@@ -53,6 +56,12 @@
             <li><a href=""><svg class="icon"><use xlink:href="assets/img/icons.svg#facebook"></use></svg></a></li>
           </ul>
         </div>
+        <div class="menu">
+          <a href="#">
+            <svg class="icon"><use xlink:href="assets/img/icons.svg#menu"></use></svg>
+            MENU
+          </a>
+        </div>
       </div>
       <div class="grid-menu">
         <div class="menu">
@@ -79,7 +88,7 @@
   <div class="menu-sidebar">
     <div class="menu">
       <div class="top">
-        <a href=""><img src="assets/images/logo-footer.svg" alt=""></a>
+        <a href="" class="logo"><img src="assets/images/logo-footer.svg" alt=""></a>
         <a href="#" class="close"><svg class="icon"><use xlink:href="assets/img/icons.svg#close"></use></svg></a>
       </div>
       <div class="body">
@@ -201,19 +210,25 @@
           <div class="box-model">
             <a href="" class="model-03">
               <div class="image"><img src="assets/images/image-test.jpg" alt=""></div>
-              <h3 class="title">Manchester City perde para o Celtic em primeiro amistoso da pré-temp...</h3>
-              <span class="date">
-                <svg class="icon"><use xlink:href="assets/img/icons.svg#clock"></use></svg>
-                22 jul 2024
-              </span>
+              <div class="content">
+                <h3 class="title">Manchester City perde para o Celtic em primeiro amistoso da pré-temp...</h3>
+                <h3 class="title mobile">Manchester City perde para o Celtic em primeiro amistoso d...</h3>
+                <span class="date">
+                  <svg class="icon"><use xlink:href="assets/img/icons.svg#clock"></use></svg>
+                  22 jul 2024
+                </span>
+              </div>
             </a>
             <a href="" class="model-03">
               <div class="image"><img src="assets/images/image-test.jpg" alt=""></div>
-              <h3 class="title">Manchester City perde para o Celtic em primeiro amistoso da pré-temp...</h3>
-              <span class="date">
-                <svg class="icon"><use xlink:href="assets/img/icons.svg#clock"></use></svg>
-                22 jul 2024
-              </span>
+              <div class="content">
+                <h3 class="title">Manchester City perde para o Celtic em primeiro amistoso da pré-temp...</h3>
+                <h3 class="title mobile">Manchester City perde para o Celtic em primeiro amistoso d...</h3>
+                <span class="date">
+                  <svg class="icon"><use xlink:href="assets/img/icons.svg#clock"></use></svg>
+                  22 jul 2024
+                </span>
+              </div>
             </a>
           </div>
           <a href="" class="model-02 small">

@@ -1,0 +1,21 @@
+/*======================================
+  Blog
+======================================*/
+
+.hero-internal {
+  padding: 77px 0 187px 0;
+  background: $color-black;
+  .grid {
+    @include columns( $quant: 1fr, $gutter: 0, $align: end, $template: '');
+    .item {
+      .title {
+        @include font($size: 50px, $weight: 700, $height: 62px, $color: $color-white);
+        text-transform: uppercase;
+      }
+      .description {
+        @include font($size: 18px, $weight: 400, $height: 27px, $color: $color-white);
+        padding: 0 2px 6px 0;
+      }
+    }
+  }
+}

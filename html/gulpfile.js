@@ -68,6 +68,34 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./assets/css/'))
     .pipe(browserSync.stream());
 });
+gulp.task('sass-responsive', function() {
+  return gulp.src(['./src/sass/main-responsive.scss'])
+    .pipe($.sourcemaps.init())
+      .pipe(
+        $.sass({
+          includePaths: ['./node_modules/'],
+          outputStyle: 'expanded'
+        })
+        .on('error', $.sass.logError)
+      )
+    .pipe($.sourcemaps.write())
+    .pipe(gulp.dest('./assets/css/'))
+    .pipe(browserSync.stream());
+});
+gulp.task('sass-mobile', function() {
+  return gulp.src(['./src/sass/main-mobile.scss'])
+    .pipe($.sourcemaps.init())
+      .pipe(
+        $.sass({
+          includePaths: ['./node_modules/'],
+          outputStyle: 'expanded'
+        })
+        .on('error', $.sass.logError)
+      )
+    .pipe($.sourcemaps.write())
+    .pipe(gulp.dest('./assets/css/'))
+    .pipe(browserSync.stream());
+});
 
 gulp.task('sass:release', ['sass'], function() {
   return gulp.src(['./assets/css/main.css'])
@@ -127,7 +155,7 @@ gulp.task('serve', function() {
 /**
  * Build
  */
-gulp.task('build', ['sass', 'scripts', 'svg2png'], function() {
+gulp.task('build', ['sass', 'sass-responsive', 'sass-mobile', 'scripts', 'svg2png'], function() {
   $.util.log($.util.colors.green('Build is finished'));
 });
 
@@ -145,7 +173,7 @@ gulp.task('watch', ['serve'], function() {
   gulp.watch('./*.html', { cwd: './' }).on('change', browserSync.reload);
 
   /* Watch styles */
-  gulp.watch(['**/*.scss'], { cwd: './src/sass/' }, ['sass']).on('change', browserSync.reload);
+  gulp.watch(['**/*.scss'], { cwd: './src/sass/' }, ['sass', 'sass-responsive', 'sass-mobile']).on('change', browserSync.reload);
 
   /* Watch SVG */
   gulp.watch(['*.svg'], { cwd: './src/img/icons/' }, ['svgicons']).on('change', browserSync.reload);

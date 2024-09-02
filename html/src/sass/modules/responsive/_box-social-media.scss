@@ -1,0 +1,50 @@
+/*======================================
+  Box social media
+======================================*/
+
+.box-social-media {
+  width: 100%;
+  height: get-vw-lg(251px);
+  border-radius: get-vw-lg(6px);
+  padding: get-vw-lg(38px) get-vw-lg(80px) 0 get-vw-lg(80px);
+  margin-bottom: get-vw-lg(24px);
+  border: 1px solid #E8E8E8;
+  .arroba {
+    @include font($size: get-vw-lg(16px), $weight: 400, $height: get-vw-lg(16px), $align: center, $color: #5C832F);
+    display: block;
+  }
+  .title {
+    @include font($size: get-vw-lg(16px), $weight: 700, $height: get-vw-lg(24px), $align: center, $color: $color-black);
+    text-transform: uppercase;
+    padding: get-vw-lg(10px) 0 get-vw-lg(32px) 0;
+  }
+  .list {
+    @include flex($align: center, $justify: center, $gap: get-vw-lg(16px));
+    li {
+      a {
+        width: get-vw-lg(44px);
+        height: get-vw-lg(44px);
+        display: block;
+        border-radius: 50%;
+        background: rgba(92, 131, 47, 0.1);
+        @include animate($time:0.3s);
+        @include flex($align: center, $justify: center);
+        .icon {
+          width: get-vw-lg(24px);
+          height: get-vw-lg(24px);
+          fill: #5C832F;
+          &.stroke {
+            fill: transparent;
+            stroke: #5C832F;
+            stroke-width: get-vw-lg(2px);
+            stroke-linecap: round;
+            stroke-linejoin: round;
+          }
+        }
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+}
